@@ -1,0 +1,69 @@
+﻿@model IEnumerable<user_stories.Models.VoyageData>
+@{
+    ViewBag.Title = "VoyageInfo";
+}
+
+<div class="body-content">
+    <div class="container personal">
+      
+        @foreach (var item in Model.GroupBy(x => new { x.VoyageNumber, x.VoyageName }))
+        {
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12">
+                    <div class="col-xs-12 info-panel">
+                        <div class="col-xs-12 info-name">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 class="text-center">@item.Key.VoyageNumber @item.Key.VoyageName</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 info-content">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4 class="text-center">Choose a time</h4>
+                                </div>
+                                <div class="col-xs-12">
+                                    <table class="table table-striped table-responsive">
+                                        <tr>
+                                            <td>Date and time</td>
+                                            <td>Travel time</td>
+                                            <td>Cost</td>
+                                            <td>Action</td>
+                                        </tr>
+                                        @foreach (var itemModel in item)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => itemModel.DepartureDateAndTime) - @Html.DisplayFor(model => itemModel.ArrivalDateAndTime)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => itemModel.TravelTime) min
+                                           
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => itemModel.OneTicketCost) $
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Choose", "BuyOrReserv", new { id = itemModel.Id }, new { @class = "btn btn-warning" }) 
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    </table>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+         
+        }
+    </div>
+</div>

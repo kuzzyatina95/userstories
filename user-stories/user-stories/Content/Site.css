@@ -1,0 +1,118 @@
+﻿html,
+body {
+    font-family: 'Open Sans';
+    height: 100%;
+    margin: 0;
+}
+
+.body-content {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .navbar.affix {
+        padding: 3px 0;
+        background-color: #000;
+    }
+}
+@media (min-width: 768px) {
+    .navbar {
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+        border: none;
+        background-color: rgba(38, 38, 38, .67);
+        box-shadow: 0 0 30px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-size: 18px;
+    font-style: italic;
+}
+
+
+#main-cover {
+    min-height: 100%;
+    text-align: center;
+    color: white;
+    border-bottom: solid black;
+    background-image: url('/Content/Images/bg-home-index.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#main-cover .hello-text {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-style: italic;
+    font-weight: 900;
+    text-shadow: 2px 2px 7px black;
+}
+
+#main-cover .service-heading {
+    margin-top: 20px;
+    text-shadow: 2px 2px 7px black;
+}
+
+#main-cover .service {
+    margin-top: 100px;
+}
+
+#main-cover .red-fa {
+    color: #f70000;
+}
+
+#main-cover span {
+    font-style: italic;
+    font-size: 40px;
+}
+
+#main-cover a {
+    font-size: 26px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.personal {
+    background-color: #f0f2f4;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.personal h3 {
+    color: white;
+    margin: 0 auto;
+}
+
+.personal .info-panel {
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.personal .info-name {
+    background-color: #424242;
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.personal .info-content {
+    background-color: #f9f9f9;
+    border-radius: 0px 0px 8px 8px;
+    padding: 20px;
+}

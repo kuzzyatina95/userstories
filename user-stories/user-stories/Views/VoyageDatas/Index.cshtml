@@ -1,0 +1,88 @@
+﻿@model IEnumerable<user_stories.Models.VoyageData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container body-content">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalDateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoyageNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoyageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OneTicketCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusStopDeparture.Name)
+                (Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusStopArrival.Name)
+                (Arrival)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureDateAndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalDateAndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TravelTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoyageNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoyageName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OneTicketCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusStopDeparture.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusStopArrival.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+

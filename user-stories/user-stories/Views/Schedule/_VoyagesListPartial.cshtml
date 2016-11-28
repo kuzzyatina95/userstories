@@ -1,0 +1,29 @@
+﻿@model IEnumerable<user_stories.Models.VoyageData>
+
+
+
+
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.VoyageNumber)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.VoyageName)
+            </th>
+        </tr>
+        @foreach (var item in Model.GroupBy(x=> new { x.VoyageNumber , x.VoyageName} ))
+        {
+            <tr>
+                <td class="text-center">
+                   @item.Key.VoyageNumber
+                </td>
+                <td class="text-center">
+                    <a href="@Url.Action("VoyageInfo", "VoyageDatas", new { Id=item.Key.VoyageNumber})">@Html.DisplayFor(model => item.Key.VoyageName)</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

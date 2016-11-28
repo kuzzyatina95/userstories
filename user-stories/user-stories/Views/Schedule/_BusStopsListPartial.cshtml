@@ -1,0 +1,24 @@
+﻿@model IEnumerable<user_stories.Models.BusStop>
+
+
+
+
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td class="text-center">
+                    <a href="@Url.Action("Find", "BusStops", new { idBusStop=item.Id})">@Html.DisplayFor(model => item.Name)</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
+            @using (Html.BeginForm("Find", "BusStops", FormMethod.Get))
+            {
+                <input type="hidden" name="idBusStop" id="idBusStop" class="form-control" />
+                <div class="col-xs-12 col-md-9">
+                    <div class="form-group">
+                        <input type="text" data-autocomplete-source='@Url.Action("AutocompleteSearchBusStops", "Home")' class="form-control" id="findBusStopAutoComplete" placeholder="Enter bus stop name" />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="form-group">
+                        <input class="btn btn-default" type="submit" value="Find bus stop">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+  
+
+
+}
+else
+{
+    <div class="row hidden-xs">
+        <div class="col-xs-12 col-sm-5 text-right">
+            @Html.ActionLink("Sign in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-warning" })
+        </div>
+        <div class="col-xs-12 col-sm-2 text-center">
+            <span>or</span>
+        </div>
+        <div class="col-xs-12 col-sm-5 text-left">
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-success" })
+        </div>
+    </div>
+    <div class="row visible-xs">
+        <div class="col-xs-12 col-sm-5 text-center">
+            @Html.ActionLink("Sign in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-warning" })
+        </div>
+        <div class="col-xs-12 col-sm-5 text-center">
+            <span>or</span>
+        </div>
+        <div class="col-xs-12 col-sm-5 text-center">
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-success" })
+        </div>
+    </div>
+}
+

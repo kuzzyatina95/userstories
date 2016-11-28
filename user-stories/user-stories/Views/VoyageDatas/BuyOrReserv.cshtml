@@ -1,0 +1,133 @@
+﻿@model user_stories.Models.Ticket
+@{
+    ViewBag.Title = "BuyOrReserv";
+}
+
+<div class="body-content">
+    <div class="container personal">
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4 text-center">
+                <h2>Voyage information</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="col-xs-12 info-panel">
+                    <div class="col-xs-12 info-name">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3 class="text-center">Buy ticket</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 info-content">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            @Html.HiddenFor(model => model.Order.VoyageData.Id)
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.VoyageNumber):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.VoyageNumber)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.VoyageName):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.VoyageName)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.DepartureDateAndTime):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.DepartureDateAndTime)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.ArrivalDateAndTime):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.ArrivalDateAndTime)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.TravelTime):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.TravelTime) min.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    @Html.DisplayNameFor(model => model.Order.VoyageData.OneTicketCost):
+                                </div>
+                                <div class="col-xs-9">
+                                    @Html.DisplayFor(model => model.Order.VoyageData.OneTicketCost) $
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PassengerSeatNumber, "Passenger seat", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownListFor(model => model.PassengerSeatNumber, ViewBag.SeatList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PassengerSeatNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PassengerFirstAndLastName, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.PassengerFirstAndLastName, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                        @Html.ValidationMessageFor(model => model.PassengerFirstAndLastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PassengerDocumentNumber, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.PassengerDocumentNumber, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                        @Html.ValidationMessageFor(model => model.PassengerDocumentNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EnumDropDownListFor(
+                        x => x.Status,
+                        "Type",
+                        new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+               
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <input type="submit" value="Confirm" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+          
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="main-cover">
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center hello-text">Save your time, money with service for search voyage</h1>
+            </div>
+        </div>
+        
+        @Html.Partial("_FindPlace")
+
+       
+        <div class="row text-center service">
+            <div class="col-xs-12 col-sm-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x red-fa"></i>
+                    <i class="fa fa-ticket fa-stack-1x fa-inverse"></i>
+                </span>
+                <h2 class="service-heading">Buy ticket online</h2>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x red-fa"></i>
+                    <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
+                </span>
+                <h2 class="service-heading">Good price</h2>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x red-fa"></i>
+                    <i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse"></i>
+                </span>
+                <h2 class="service-heading">Excellent choice</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section css {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/appJQ/jquery-autocomplete.js"></script>
+}
+
